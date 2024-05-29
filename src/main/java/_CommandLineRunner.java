@@ -5,7 +5,6 @@ import se.jpaworkshop.jpaworkshop.entity.AppUser;
 import se.jpaworkshop.jpaworkshop.entity.Details;
 import se.jpaworkshop.jpaworkshop.repository.AppUserRepository;
 
-import java.time.LocalDate;
 
 @Component
 public class _CommandLineRunner implements CommandLineRunner {
