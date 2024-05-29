@@ -7,10 +7,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.time.LocalDate;
 
-@Getter
-@Setter
+
+
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 
 @Entity
 public class Details {

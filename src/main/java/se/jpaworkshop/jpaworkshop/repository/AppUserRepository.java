@@ -8,11 +8,11 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Repository
-public interface AppUserRepository extends JpaRepository<AppUser, String> {
+public interface AppUserRepository extends JpaRepository<AppUser, Integer> {
 
     AppUser findByUsername(String username);
-    List<AppUser> findByRegistrationDateBetween(LocalDate from, LocalDate to);
-    List<AppUser> findByEmailIgnoreCase(String email);
-    List<AppUser> findByIdIgnoreCase(int id); // Todo: check change argument to Details details
+    List<AppUser> findByRegDateBetween(LocalDate from, LocalDate to);
+    List<AppUser> findByUserDetails_Id(int id);
+    List<AppUser> findByUserDetails_Email(String email); // Todo: check change argument to Details details
 
 }

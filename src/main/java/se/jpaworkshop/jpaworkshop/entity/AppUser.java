@@ -4,19 +4,21 @@ import java.time.LocalDate;
 
 import jakarta.persistence.*;
 import lombok.*;
-import se.jpaworkshop.jpaworkshop.entity.Details;
 
-@Getter
+import static jakarta.persistence.GenerationType.*;
+
+
+@AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
+//@EqualsAndHashCode
 @ToString
-
+@Getter
 
 @Entity
 public class AppUser {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = IDENTITY)
     private int id;
 
     @Column(nullable = false, length = 100)
@@ -38,6 +40,9 @@ public class AppUser {
     public AppUser(String username, String password) {
         this.username = username;
         this.password = password;
+        this.regDate = LocalDate.now();
+
+
 
     }
 }
