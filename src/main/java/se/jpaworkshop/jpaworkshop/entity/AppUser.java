@@ -14,6 +14,7 @@ import static jakarta.persistence.GenerationType.*;
 @ToString
 @Getter
 
+
 @Entity
 public class AppUser {
 
@@ -32,17 +33,22 @@ public class AppUser {
     @Column
     private LocalDate regDate;
 
-    @Setter
-    @OneToOne
-    @JoinColumn(name ="id")
-    private Details userDetails ;
 
-    public AppUser(String username, String password) {
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name ="details_id")
+    private Details details ;
+
+    public AppUser(String username, String password,Details userDetails) {
         this.username = username;
         this.password = password;
         this.regDate = LocalDate.now();
-
-
+        this.details = userDetails;
 
     }
+
+    public AppUser(String username, String password) {
+       this.username = username;
+       this.password = password;
+        this.regDate = LocalDate.now();
+  }
 }
