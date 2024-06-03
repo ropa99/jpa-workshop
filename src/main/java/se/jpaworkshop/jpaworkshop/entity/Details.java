@@ -1,46 +1,66 @@
 package se.jpaworkshop.jpaworkshop.entity;
 
+
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-//import org.springframework.boot.autoconfigure.amqp.RabbitConnectionDetails;
 
 import java.time.LocalDate;
 
-
-
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-
 @Entity
 public class Details {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(nullable = false, length=50)
-
-    private String email;
-
     @Column(nullable = false, length = 100)
-
     private String name;
 
+    @Column(nullable = false, length=50)
+    private String email;
+
     @Column
-
     private LocalDate birthDate;
+    //private Appuser appUser;
 
-    @OneToOne(mappedBy = "details")
-    private AppUser appUser;
 
-    public Details(String email, String name, LocalDate birthDate) {
-        this.email = email;
+    public Details(String name, String email, LocalDate birthDate) {
         this.name = name;
+        this.email = email;
         this.birthDate = birthDate;
+    }
+    public Details() {}
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+    public int getId() {return this.id;}
+
+    @Override
+    public String toString() {
+        return "Details{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", birthDate=" + birthDate +
+                '}';
     }
 }

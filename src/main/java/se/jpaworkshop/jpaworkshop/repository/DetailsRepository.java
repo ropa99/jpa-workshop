@@ -8,8 +8,8 @@ import java.util.List;
 
 @Repository
 public interface DetailsRepository extends JpaRepository<Details, Integer> {
-//    List<Details> findAllById(Integer userId);
-//    List<Details> findByEmailIgnoreCase(String emails);
-//    List<Details> findDetailsByNameContains(String name );
-//    List<Details> findDetailsByNameIgnoreCase(String name );
+    List<Details> findAllById(Integer userId);
+    List<Details> findByEmailIgnoreCase(String emails);
+    List<Details> findDetailsByNameContains(String name );
+    List<Details> findDetailsByNameIgnoreCase(String name );
 }
