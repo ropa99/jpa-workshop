@@ -2,8 +2,8 @@ package se.jpaworkshop.jpaworkshop.entity;
 
 
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
+import se.jpaworkshop.jpaworkshop.entity.AppUser;
 
 @Entity
 public class Details {
@@ -19,13 +19,16 @@ public class Details {
 
     @Column
     private LocalDate birthDate;
-    //private Appuser appUser;
+
+//    @OneToOne(mappedBy = "details")
+//    private AppUser appUser;
 
 
     public Details(String name, String email, LocalDate birthDate) {
         this.name = name;
         this.email = email;
         this.birthDate = birthDate;
+        //this.appUser = appUser;
     }
     public Details() {}
 
@@ -52,7 +55,7 @@ public class Details {
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
-    public int getId() {return this.id;}
+    //public int getId() {return this.id;}
 
     @Override
     public String toString() {

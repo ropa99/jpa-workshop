@@ -3,6 +3,7 @@ package se.jpaworkshop.jpaworkshop.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class AppUser {
@@ -20,14 +21,24 @@ public class AppUser {
     @Column
     private LocalDate regDate;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name="details_id")
     private Details details;
+
+    @OneToMany(mappedBy = "borrower")
+    private List<BookLoan> bookLoans;
 
     public AppUser(String username, String password, Details details) {
         this.username = username;
         this.password = password;
         this.regDate = LocalDate.now();
         this.details = details;
+    }
+    public AppUser(String username, String password) {
+        this.username = username;
+        this.password = password;
+        this.regDate = LocalDate.now();
+
     }
 
     public AppUser() {}

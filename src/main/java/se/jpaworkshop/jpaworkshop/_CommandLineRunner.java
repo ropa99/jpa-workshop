@@ -4,9 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import se.jpaworkshop.jpaworkshop.entity.AppUser;
+import se.jpaworkshop.jpaworkshop.entity.Details;
 import se.jpaworkshop.jpaworkshop.repository.AppUserRepository;
 import se.jpaworkshop.jpaworkshop.repository.DetailsRepository;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 @Component
@@ -23,8 +25,12 @@ public class _CommandLineRunner implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
 
-//        Details details1 = new Details("Person1","person1@gmail.com", LocalDate.now());
-//        AppUser appuser1 = new AppUser("Person1","Password",details1);
+        Details details1 = new Details("Person1","person1@gmail.com", LocalDate.now());
+        //detailsRepository.save(details1);
+        AppUser appuser1 = new AppUser("Person1","Password",details1);
+        appUserRepository.save(appuser1);
+
+
 //        Details details2 = new Details("Person2","person2@gmail.com", LocalDate.now());
 //        AppUser appuser2 = new AppUser("Person2","Password",details2);
 //        Details details3 = new Details("Person3","person3@gmail.com", LocalDate.now());
