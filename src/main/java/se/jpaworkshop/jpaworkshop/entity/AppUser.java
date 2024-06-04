@@ -10,6 +10,7 @@ public class AppUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false)
     private int id;
 
     @Column(nullable = false, length = 100)
@@ -25,7 +26,7 @@ public class AppUser {
     @JoinColumn(name="details_id")
     private Details details;
 
-    @OneToMany(mappedBy = "borrower")
+    @OneToMany(mappedBy = "borrower",cascade = CascadeType.ALL)
     private List<BookLoan> bookLoans;
 
     public AppUser(String username, String password, Details details) {

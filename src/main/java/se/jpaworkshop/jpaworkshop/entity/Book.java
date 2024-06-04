@@ -11,6 +11,7 @@ import java.util.Set;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false)
     private int id;
     @Column(nullable = false)
     private String isbn;
@@ -19,9 +20,9 @@ public class Book {
     @Column
     private int maxLoanDays;
 
-    @OneToMany(mappedBy = "book")
-    private Set<BookLoan> bookLoans = new HashSet<>();
-    //private List<BookLoan> bookLoans = new ArrayList<>();
+    @OneToMany(mappedBy = "book",cascade = CascadeType.ALL)
+    //private Set<BookLoan> bookLoans = new HashSet<>();
+    private List<BookLoan> bookLoans = new ArrayList<>();
 
     public Book(String isbn, String title, int maxLoanDays) {
         this.isbn = isbn;

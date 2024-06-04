@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @Repository
 public interface AppUserRepository extends JpaRepository<AppUser, Integer> {
+
     Optional<AppUser> findById(int id);
     List<AppUser> findByUsername(String username);
     List<AppUser> findByRegDateBetween(LocalDate from, LocalDate to);

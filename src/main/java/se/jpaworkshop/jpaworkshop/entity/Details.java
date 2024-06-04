@@ -9,6 +9,7 @@ import se.jpaworkshop.jpaworkshop.entity.AppUser;
 public class Details {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false)
     private int id;
 
     @Column(nullable = false, length = 100)
@@ -20,8 +21,8 @@ public class Details {
     @Column
     private LocalDate birthDate;
 
-//    @OneToOne(mappedBy = "details")
-//    private AppUser appUser;
+    @OneToOne(mappedBy = "details")
+    private AppUser appUser;
 
 
     public Details(String name, String email, LocalDate birthDate) {
