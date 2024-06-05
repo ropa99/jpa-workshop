@@ -1,7 +1,7 @@
 package se.jpaworkshop.jpaworkshop.entity;
 
 import jakarta.persistence.*;
-
+import se.jpaworkshop.jpaworkshop.entity.Author;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -23,6 +23,9 @@ public class Book {
     @OneToMany(mappedBy = "book",cascade = CascadeType.ALL)
     //private Set<BookLoan> bookLoans = new HashSet<>();
     private List<BookLoan> bookLoans = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "writtenBooks")
+    private Set<Author> authors = new HashSet<>();
 
     public Book(String isbn, String title, int maxLoanDays) {
         this.isbn = isbn;

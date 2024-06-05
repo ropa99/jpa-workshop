@@ -27,8 +27,8 @@ public class _CommandLineRunner implements CommandLineRunner {
 
         Details details1 = new Details("Person1","person1@gmail.com", LocalDate.now());
         //detailsRepository.save(details1);
-        AppUser appuser1 = new AppUser("Person1","Password",details1);
-        appUserRepository.save(appuser1);
+        //AppUser appuser1 = new AppUser("Person1","Password",details1);
+        //appUserRepository.save(appuser1);
 
 
 //        Details details2 = new Details("Person2","person2@gmail.com", LocalDate.now());
